@@ -15,7 +15,14 @@ function addTask(){
     }
     inputBox.value ="";
     saveData();
+    inputBox.focus(); 
 }
+
+inputBox.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+        addTask();
+    }
+});
 
 listContainer.addEventListener("click", function(e){
     if(e.target.tagName === "LI"){
@@ -35,4 +42,5 @@ function saveData(){
 function showTask(){
     listContainer.innerHTML = localStorage.getItem("data");
 }
+
 showTask();
